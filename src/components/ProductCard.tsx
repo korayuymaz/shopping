@@ -2,11 +2,19 @@
   - Create a Product Card with size selection and add to the card buttons
   - Create Redux connections for the global states
 */
+import { Product } from "../interfaces/Product";
 
-import React from "react";
+interface ProductProps {
+  product: Product;
+}
 
-const ProductCard = () => {
-  return <div>ProductCard</div>;
+const ProductCard = ({ product }: ProductProps) => {
+  return (
+    <div>
+      <div>{product.name}</div>
+      <div>{product.sex}</div>
+    </div>
+  );
 };
 
 export default ProductCard;

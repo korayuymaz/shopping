@@ -7,6 +7,10 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ProductCard from "../../components/ProductCard";
+import { Product } from "../../interfaces/Product";
+
+
 
 const Products = () => {
   const { sex } = useParams();
@@ -29,18 +33,11 @@ const Products = () => {
 
   return (
     <div>
-      {products.map(
-        (product: {
-          id: number | undefined;
-          name: string | undefined;
-          sex: string | undefined;
-        }) => (
-          <div key={product.id}>
-            <div>{product.name}</div>
-            <div>{product.sex}</div>
-          </div>
-        )
-      )}
+      {products.map((product: Product) => (
+        <div key={product.id}>
+          <ProductCard product={product} />
+        </div>
+      ))}
     </div>
   );
 };
