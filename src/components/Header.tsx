@@ -1,17 +1,37 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="header">
       <ul>
         <li>
-          <a href="/">Home</a>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Home
+          </button>
         </li>
         <li>
-          <a href="/products">Products</a>
+          <button
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
+            Products
+          </button>
         </li>
         <li>
-          <a href="/cart">Cart</a>
+          <button
+            onClick={() => {
+              navigate("/cart");
+            }}
+          >
+            Cart
+          </button>
         </li>
       </ul>
     </div>

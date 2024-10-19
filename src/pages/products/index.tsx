@@ -8,9 +8,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
-import { Product } from "../../interfaces/Product";
-
-
+import { Product } from "../../type";
+import ShoppingCard from "../shopping-cart";
 
 const Products = () => {
   const { sex } = useParams();
@@ -29,7 +28,7 @@ const Products = () => {
     } else {
       setProducts(data);
     }
-  }, []);
+  }, [sex]);
 
   return (
     <div>
