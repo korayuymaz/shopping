@@ -6,19 +6,20 @@
 */
 
 import ProductCard from "../../components/ProductCard";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { useAppSelector } from "../../store/hooks";
 
 function ShoppingCard() {
-  const products = useAppSelector((state) => state.cart.products);
-  const dispatch = useAppDispatch();
+  const { items, totalCount } = useAppSelector((state) => state.cart);
 
-  console.log(products);
   return (
     <div>
-      Shopping Card
-      {products.map((product) => (
-        <ProductCard product={product} />
+      <h2>Shopping Cart</h2>
+      {items.map((item, index) => (
+        <li key={index}>
+          <ProductCard product={item.product} quantity={item.quantity} />
+        </li>
       ))}
+      <div>Total Count: {totalCount}</div>
     </div>
   );
 }

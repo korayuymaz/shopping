@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import { Product } from "../../type";
-import ShoppingCard from "../shopping-cart";
 
 const Products = () => {
   const { sex } = useParams();
@@ -34,7 +33,7 @@ const Products = () => {
     <div>
       {products.map((product: Product) => (
         <div key={product.id}>
-          <ProductCard product={product} />
+          <ProductCard product={product} quantity={0} />
         </div>
       ))}
     </div>
