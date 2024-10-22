@@ -11,23 +11,23 @@ import ProductCard from "../../components/ProductCard";
 import { Product } from "../../type";
 
 const Products = () => {
-  const { sex } = useParams();
+  const { gender } = useParams();
   const [products, setProducts] = useState<any>([]); //Fix This
 
   const data = [
-    { id: 1, sex: "man", name: "Product 1" },
-    { id: 2, sex: "woman", name: "Product 2" },
+    { id: 1, gender: "man", name: "Product 1" },
+    { id: 2, gender: "woman", name: "Product 2" },
   ];
 
   useEffect(() => {
-    if (sex) {
+    if (gender) {
       data.map((product) => {
-        if (product.sex === sex) setProducts([...products, product]);
+        if (product.gender === gender) setProducts([...products, product]);
       });
     } else {
       setProducts(data);
     }
-  }, [sex]);
+  }, [gender]);
 
   return (
     <div>
